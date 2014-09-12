@@ -8,9 +8,6 @@
  * and a list of friends.
  */
 
-import acm.graphics.*;
-import acm.util.ErrorException;
-
 import java.awt.Image;
 import java.util.*;
 

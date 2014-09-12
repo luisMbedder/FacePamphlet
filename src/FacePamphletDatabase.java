@@ -7,7 +7,6 @@
  */
 
 import java.util.*;
-import java.util.Map.Entry;
 
 public class FacePamphletDatabase implements FacePamphletConstants {
 

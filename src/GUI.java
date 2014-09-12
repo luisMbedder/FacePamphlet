@@ -37,7 +37,6 @@ public class GUI implements FacePamphletConstants{
     private JTextArea textArea;
     private FacePamphletDatabase database = new FacePamphletDatabase();
     private static String currentProfile=null;
-    private static ActionEvent buttonPressed=null;
     private String friend;
     //ProfilePanel panel = new ProfilePanel(this);
    // ProfilePanel panel = new ProfilePanel();
@@ -209,7 +208,6 @@ public class GUI implements FacePamphletConstants{
 ///Action Listener for Add Button
 	addProfileButton.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
-			buttonPressed=e;
 			String name = nameTextField1.getText();
 			if(!database.containsProfile(name)){
 			textArea.setText("");
@@ -235,7 +233,6 @@ public class GUI implements FacePamphletConstants{
 	///Action Listener for delete profile Button
 	deleteProfileButton.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
-			buttonPressed=e;
 			if(database.containsProfile(nameTextField1.getText())){
 			database.deleteProfile(nameTextField1.getText());
 			currentProfile = null;
@@ -259,7 +256,6 @@ public class GUI implements FacePamphletConstants{
 	///Action Listener for change status Button
 	btnChangeStatus.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
-			buttonPressed=e;
 			String status = statusTextField1.getText();
 			if((currentProfile!=null)&&(status.length()!=0)){
 				database.getProfile(currentProfile).setStatus(status);	
@@ -277,8 +273,6 @@ public class GUI implements FacePamphletConstants{
 	///Action Listener for add friend Button
 	btnAddFriend.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
-			buttonPressed=e;
-			
 			friend = friendTextField1.getText();
 			if(database.containsProfile(friend)){
 				textArea.setVisible(true);
@@ -297,7 +291,6 @@ public class GUI implements FacePamphletConstants{
 	///Action Listener for change picture Button
 	btnChangePicture.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
-			buttonPressed=e;
 			String filename = pictureTextField1.getText();
 			//	database.getProfile(nameTextField1.getText()).setImage();
 			
@@ -316,8 +309,6 @@ public class GUI implements FacePamphletConstants{
 	///Action Listener for lookup profile Button
 	lookupProfileButton.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
-			buttonPressed=e;
-			
 			//if(database.getProfile(currentProfile).getName()!=null){
 			try{
 			currentProfile = nameTextField1.getText();//database.getProfile(currentProfile).getName();
